@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "177026222214",
+    "project_id": "carpool-parents"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177026222214:android:42cad19ec5fa7687",
+        "android_client_info": {
+          "package_name": "com.carpoolparents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177026222214-j0c5ej6thdsm6qitjabq9r01tpu1c541.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "177026222214-m0s2tomm2qsqfr1uqebmcutrasvaufuo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.carpoolparents",
+            "certificate_hash": "d0b8767489c54902558409517d15251fe2527519"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCBawlVf-8LtjZH7846DqmvKRkM4YyCkU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
