@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carpoolparents.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="256dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/date_hint"
+        android:inputType="date"
+        app:layout_constraintLeft_toLeftOf="@+id/timeFrom"
+        app:layout_constraintRight_toRightOf="@+id/timeTo"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <EditText
+        android:id="@+id/timeFrom"
+        android:layout_width="128dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/from_time_hint"
+        android:inputType="time"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/timeTo"
+        tools:layout_editor_absoluteY="141dp" />
+
+    <EditText
+        android:id="@+id/timeTo"
+        android:layout_width="128dp"
+        android:layout_height="51dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/to_time_hint"
+        android:inputType="time"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="141dp" />
+</android.support.constraint.ConstraintLayout>
