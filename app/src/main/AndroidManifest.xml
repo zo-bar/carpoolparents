@@ -19,25 +19,26 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ChooserActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".GoogleSignInActivity"
             android:label="@string/name_sign_in_activity"
-            android:theme="@style/ThemeOverlay.MyNoTitleActivity"></activity>
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity" />
         <activity
             android:name=".SignUpActivity"
             android:label="@string/name_sign_in_activity"
-            android:theme="@style/ThemeOverlay.MyNoTitleActivity"></activity>
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/ThemeOverlay.MyNoTitleActivity"></activity>
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity" />
+        <activity android:name=".NotImplementedActivity"></activity>
     </application>
 
 </manifest>

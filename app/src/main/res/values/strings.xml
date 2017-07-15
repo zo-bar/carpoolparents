@@ -82,10 +82,12 @@
     <string name="action_logout">Logout</string>
 
 
-
     <!-- Main activity -->
     <string name="date_hint">Date</string>
     <string name="from_time_hint">Pick up time</string>
     <string name="to_time_hint">Drop off time</string>
+
+    <!-- Not implemented stub -->
+    <string name="not_implemented">Sorry, this page is not implemented yet</string>
 
 </resources>
