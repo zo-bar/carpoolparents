@@ -1,48 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.carpoolparents.MainActivity"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    android:fitsSystemWindows="true">
 
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="256dp"
-        android:layout_height="43dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="@string/date_hint"
-        android:inputType="date"
-        app:layout_constraintLeft_toLeftOf="@+id/timeFrom"
-        app:layout_constraintRight_toRightOf="@+id/timeTo"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="69dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/timeFrom"
-        android:layout_width="128dp"
-        android:layout_height="54dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="@string/from_time_hint"
-        android:inputType="time"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/timeTo"
-        tools:layout_editor_absoluteY="141dp" />
+        <include layout="@layout/toolbar" />
 
-    <EditText
-        android:id="@+id/timeTo"
-        android:layout_width="128dp"
-        android:layout_height="51dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="@string/to_time_hint"
-        android:inputType="time"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="141dp" />
-</android.support.constraint.ConstraintLayout>
+        <!-- For fragments -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frame"/>
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_items" />
+
+</android.support.v4.widget.DrawerLayout>

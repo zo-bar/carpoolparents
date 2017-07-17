@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/menu_new_ride"
+            android:title="@string/menu_new_ride"/>
+
+        <item android:id="@+id/menu_calendar"
+            android:title="@string/menu_calendar" />
+        <!--             android:icon="@drawable/ic_action_stop" /-->
+    </group>
+</menu>

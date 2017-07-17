@@ -90,4 +90,8 @@
     <!-- Not implemented stub -->
     <string name="not_implemented">Sorry, this page is not implemented yet</string>
 
+    <!-- Menu -->
+    <string name="menu_new_ride">Request a ride</string>
+    <string name="menu_calendar">Calendar</string>
+
 </resources>

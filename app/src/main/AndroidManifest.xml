@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MyAppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -38,7 +38,6 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity" />
-        <activity android:name=".NotImplementedActivity"></activity>
     </application>
 
 </manifest>
