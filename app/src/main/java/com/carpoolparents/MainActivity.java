@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         configureNavigationDrawer();
         configureToolbar();
 
-        //logIn();
+        logIn();
     }
 
     private void logIn() {
