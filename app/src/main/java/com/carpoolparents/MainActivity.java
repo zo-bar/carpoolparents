@@ -13,15 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.carpoolparents.auth.AuthActivity;
 import com.carpoolparents.fragments.NotImplementedFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
-    private String mUserId;
 
     private DrawerLayout drawerLayout;
 
@@ -43,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         configureNavigationDrawer();
         configureToolbar();
+
+        //logIn();
     }
 
-    private void loadLogInView() {
-        Intent intent = new Intent(this, ChooserActivity.class);
+    private void logIn() {
+        Intent intent = new Intent(this, AuthActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
