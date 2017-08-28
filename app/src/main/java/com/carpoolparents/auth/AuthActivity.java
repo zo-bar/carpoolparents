@@ -42,7 +42,7 @@ public class AuthActivity extends AppCompatActivity
         ImageView emailLoginImageView = (ImageView) findViewById(R.id.image_email_login);
         final TableLayout tableLayout = (TableLayout) findViewById(R.id.auth_table_layout);
 
-        subscribeImageView .setOnClickListener(new View.OnClickListener() {
+        subscribeImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tableLayout.setVisibility(View.GONE);
@@ -53,7 +53,7 @@ public class AuthActivity extends AppCompatActivity
             }
         });
 
-        emailLoginImageView  .setOnClickListener(new View.OnClickListener() {
+        emailLoginImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tableLayout.setVisibility(View.GONE);

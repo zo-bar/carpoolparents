@@ -7,5 +7,7 @@
         <item android:id="@+id/menu_calendar"
             android:title="@string/menu_calendar" />
         <!--             android:icon="@drawable/ic_action_stop" /-->
+        <item android:id="@+id/menu_contacts"
+            android:title="@string/menu_contacts" />
     </group>
 </menu>
