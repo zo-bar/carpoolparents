@@ -23,10 +23,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.carpoolparents.R;
+import com.carpoolparents.util.Utils;
 
 public class ContactsFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor>,
         AdapterView.OnItemClickListener {
+    private static final String TAG = Utils.TAG + ".ContactsFragment";
 
     /*
      * Defines an array that contains column names to move from
@@ -84,16 +86,16 @@ public class ContactsFragment extends Fragment implements
     }
 
     private void loadContacts() {
-        getActivity().setContentView(android.R.layout.simple_list_item_1);
+        //getActivity().setContentView(android.R.layout.simple_list_item_1);
 
         // Gets the ListView from the View list of the parent activity
         mContactsList =
-                (ListView) getActivity().findViewById(R.id.contacts_list_view);
+                (ListView) getActivity().findViewById(android.R.id.list);
 
         // Gets a CursorAdapter
         mCursorAdapter = new SimpleCursorAdapter(
                 getActivity(),
-                R.layout.contacts_list_item,
+                android.R.layout.simple_list_item_1,
                 null,
                 FROM_COLUMNS, TO_IDS,
                 0);
@@ -217,9 +219,9 @@ public class ContactsFragment extends Fragment implements
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         // Put the result Cursor in the adapter for the ListView
         mCursorAdapter.swapCursor(cursor);
-        Log.d("carpoolparents", "onLoadFinished mContactsList.count = " +  mContactsList.getCount());
+        Log.d(TAG, "onLoadFinished mContactsList.count = " +  mContactsList.getCount());
         if (mContactsList.getCount() > 0){
-            Log.d("carpoolparents", mContactsList.getAdapter().getItem(0).toString());
+            Log.d(TAG, mContactsList.getAdapter().getItem(0).toString());
         }
     }
 
@@ -227,7 +229,7 @@ public class ContactsFragment extends Fragment implements
     public void onLoaderReset(Loader<Cursor> loader) {
         // Delete the reference to the existing Cursor
         mCursorAdapter.swapCursor(null);
-        Log.d("my", "onLoaderReset mContactsList.count = " +  mContactsList.getCount());
+        Log.d(TAG, "onLoaderReset mContactsList.count = " +  mContactsList.getCount());
 
 
     }

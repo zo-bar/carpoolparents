@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.carpoolparents.auth.AuthActivity;
+import com.carpoolparents.fragments.ContactsFragment;
 import com.carpoolparents.fragments.ContactsListFragment;
 import com.carpoolparents.fragments.NotImplementedFragment;
 import com.google.firebase.auth.FirebaseAuth;

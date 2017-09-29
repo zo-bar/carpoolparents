@@ -11,7 +11,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.ContextCompat;
@@ -20,12 +22,16 @@ import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.carpoolparents.R;
+import com.carpoolparents.util.Utils;
 
 public class ContactsListFragment extends ListFragment implements LoaderCallbacks<Cursor> {
+
+    private static final String TAG = Utils.TAG + ".ContactsListFragment";
 
     private CursorAdapter mAdapter;
 
@@ -38,6 +44,7 @@ public class ContactsListFragment extends ListFragment implements LoaderCallback
     // columns requested from the database
     private static final String[] PROJECTION = {
             Contacts._ID, // _ID is always required
+            Contacts.LOOKUP_KEY, //
             Contacts.DISPLAY_NAME_PRIMARY // that's what we want to display
     };
 
@@ -47,7 +54,7 @@ public class ContactsListFragment extends ListFragment implements LoaderCallback
     }
 
     private void createAdapter() {
-        Log.d("carpoolparents", "createAdaptor");
+        Log.d(TAG, "createAdaptor");
         // create adapter once
         if (mAdapter == null){
             int layout = android.R.layout.simple_list_item_1;
@@ -62,9 +69,9 @@ public class ContactsListFragment extends ListFragment implements LoaderCallback
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Log.d("carpoolparents", "onActivityCreated");
+        Log.d(TAG, "onActivityCreated");
         if (checkPermissions()) {
-            Log.d("carpoolparents", "has permissions");
+            Log.d(TAG, "has permissions");
             createAdapter();
             // and tell loader manager to start loading
             getLoaderManager().initLoader(0, null, this);
@@ -97,9 +104,9 @@ public class ContactsListFragment extends ListFragment implements LoaderCallback
             // Once cursor is loaded, give it to adapter
             mAdapter.swapCursor(data);
 
-            Log.d("carpoolparents", "onLoadFinished contacts count = " + mAdapter.getCount());
+            Log.d(TAG, "onLoadFinished contacts count = " + mAdapter.getCount());
             if (mAdapter.getCount() > 0) {
-                Log.d("carpoolparents", mAdapter.getItem(0).toString());
+                Log.d(TAG, mAdapter.getItem(0).toString());
             }
         }
     }
@@ -140,5 +147,37 @@ public class ContactsListFragment extends ListFragment implements LoaderCallback
                 return;
             }
         }
+    }
+
+
+    // Define variables for the contact the user selects
+    // The contact's _ID value
+    long mContactId;
+    // The contact's LOOKUP_KEY
+    String mContactKey;
+    // A content URI for the selected contact
+    Uri mContactUri;
+    // The column index for the _ID column
+    private static final int CONTACT_ID_INDEX = 0;
+    // The column index for the LOOKUP_KEY column
+    private static final int LOOKUP_KEY_INDEX = 1;
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        // Get the Cursor
+        Cursor cursor = mAdapter.getCursor();
+        // Move to the selected contact
+        cursor.moveToPosition(position);
+        // Get the _ID value
+        mContactId = cursor.getLong(CONTACT_ID_INDEX);
+        // Get the selected LOOKUP KEY
+        mContactKey = cursor.getString(LOOKUP_KEY_INDEX);
+        // Create the contact's content Uri
+        mContactUri = ContactsContract.Contacts.getLookupUri(mContactId, mContactKey);
+
+        ContactDetailsFragment f = ContactDetailsFragment.newInstance(mContactUri);
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, f);
+        transaction.commit();
     }
 }
