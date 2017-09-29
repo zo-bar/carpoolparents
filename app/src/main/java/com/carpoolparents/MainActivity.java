@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.carpoolparents.auth.AuthActivity;
-import com.carpoolparents.fragments.ContactsFragment;
+import com.carpoolparents.fragments.ContactsListFragment;
 import com.carpoolparents.fragments.NotImplementedFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.menu_calendar) {
                     f = new NotImplementedFragment();
                 } else if (itemId == R.id.menu_contacts) {
-                    f = new ContactsFragment();
+                    f = new ContactsListFragment();
                 }
 
                 if (f != null) {
